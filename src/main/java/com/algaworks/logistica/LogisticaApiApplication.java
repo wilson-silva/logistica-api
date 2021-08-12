@@ -1,4 +1,4 @@
-package com.algaworks.logistica.api;
+package com.algaworks.logistica;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

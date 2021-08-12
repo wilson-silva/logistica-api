@@ -1,4 +1,4 @@
-package com.algaworks.logistica.api.domain.model;
+package com.algaworks.logistica.domain.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,5 @@ public class Cliente {
 	
 	@Column(name = "fone")
 	private String telefone;
-
-
-		
+	
 }
