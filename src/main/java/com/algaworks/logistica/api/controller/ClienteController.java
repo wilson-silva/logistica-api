@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.algaworks.logistica.domain.model.Cliente;
 import com.algaworks.logistica.domain.repository.ClienteRepository;
+import com.algaworks.logistica.domain.service.CatalogoClienteService;
 
 import lombok.AllArgsConstructor;
 
@@ -28,10 +29,8 @@ import lombok.AllArgsConstructor;
 public class ClienteController {
 
 	private ClienteRepository clienteRepository;
+	private CatalogoClienteService catalogoClienteService;
 
-	//*********************************************************
-	//READ
-	
 	@GetMapping
 	public List<Cliente> listar(){
 		return clienteRepository.findAll();
@@ -43,17 +42,13 @@ public class ClienteController {
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
 	}
-	//*********************************************************
-	//CREATE
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
+		return catalogoClienteService.salvar(cliente);
 	}
-	
-	//*********************************************************
-	//UPDATE
+
 	
 	@PutMapping("/{clienteId}")
 	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId,
@@ -62,13 +57,11 @@ public class ClienteController {
 			return ResponseEntity.notFound().build();
 		}
 		cliente.setId(clienteId);
-		cliente = clienteRepository.save(cliente);
+		cliente = catalogoClienteService.salvar(cliente);
 		
 		return ResponseEntity.ok(cliente);
 	}
-	
-	//*********************************************************
-	//DELETE
+
 	
 	@DeleteMapping("/{clienteId}")
 	public ResponseEntity<Void> remover(@ PathVariable Long clienteId){
@@ -76,7 +69,7 @@ public class ClienteController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		clienteRepository.deleteById(clienteId);
+		catalogoClienteService.excluir(clienteId);
 		
 		return ResponseEntity.noContent().build();
 	}
