@@ -9,8 +9,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.NotFound;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
