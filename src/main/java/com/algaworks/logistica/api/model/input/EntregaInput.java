@@ -23,6 +23,4 @@ public class EntregaInput {
 	@NotNull
 	private BigDecimal taxa;
 	
-	
-	
 }
