@@ -48,7 +48,6 @@ public class ClienteController {
 		return catalogoClienteService.salvar(cliente);
 	}
 
-	
 	@PutMapping("/{clienteId}")
 	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId,
 			@Valid @RequestBody Cliente cliente) {
