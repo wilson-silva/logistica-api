@@ -32,4 +32,4 @@ Foi possivel ver os conceitos:
 
 Wilson Gimenes da Silva
 
-https://github.com/wilson-silva/order
+https://github.com/wilson-silva/logistica-api
